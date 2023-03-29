@@ -1,5 +1,5 @@
+
 import React from 'react'
-import CartContext from '../context/CartContext'
 import ItemCount from './ItemCount'
 
 const ItemDetail = ({datos}) => {
@@ -18,7 +18,7 @@ const ItemDetail = ({datos}) => {
                     <div className="whiteSpace"></div>
                    <div>
                     
-                    <ItemCount stock={dato.stock} productName={dato.name} price={dato.price}/>
+                    <ItemCount picture={dato.pictureUrl} id={dato.id}stock={dato.stock} productName={dato.name} price={dato.price}/>
                     
                      </div>
                 </div>  

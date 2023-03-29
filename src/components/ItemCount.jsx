@@ -22,19 +22,24 @@ const ItemCount = ({stock, productName, price, picture, id}) => {
     const added = ()=>{
       
     const nuevoProducto={id, productName,cantidad,price, picture}
-    const existingProductIndex = cart.findIndex(
+    const existingProductIndex = cart.find(
         (product) => product.id === nuevoProducto.id
       );
       
-      if (existingProductIndex !== -1) {
-        const updatedCart = [...cart];
-        updatedCart[existingProductIndex].cantidad += nuevoProducto.cantidad;
-        setCart(updatedCart);
+      if (existingProductIndex) {
+                    const carritoActualizado = cart.map((prod)=>{
+                        if(prod.id === nuevoProducto.id){
+                            return {...prod, cantidad:prod.cantidad + cantidad}
+                        }else{
+                            return prod
+                        }
+                    })
+                    setCart(carritoActualizado )
       } else {
         setCart([...cart, nuevoProducto]);
       }
     }
-    console.log(cart)
+    console.log(cart, 'carrito')
     
   return (
     <>
