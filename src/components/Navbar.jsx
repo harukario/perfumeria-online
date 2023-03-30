@@ -2,7 +2,6 @@ import CartWidget from './CartWidget'
 import { useState } from 'react'
 import { Link} from "react-router-dom";
 
-import CartContext from '../context/CartContext';
 const Navbar = () => {
   const [display, setDisplay] = useState(false)
  
@@ -20,8 +19,8 @@ const Navbar = () => {
   const Categorias =()=>{
     return(
       <div id="categorias" className="search-results">
-        <Link to={`/category/${"Premium"}`}> <button> Premium </button> </Link>
-        <Link to={`/category/${"Low Cost"}`}> <button> Low Cost </button> </Link>
+        <Link to={`/category/${"femenina"}`}> <button> Fragancias femeninas </button> </Link>
+        <Link to={`/category/${"masculina"}`}> <button> Fragancias masculinas </button> </Link>
       </div>
     )}
 
@@ -45,7 +44,7 @@ const Navbar = () => {
         
 
     </ul>
-    <CartContext>  <CartWidget/> </CartContext> 
+     <CartWidget/> 
     </div>
     
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import ItemList from './ItemList'
-import data from './data.json'
+
+import {collection, getDocs, getFirestore} from "firebase/firestore"
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 
@@ -9,31 +10,19 @@ const ItemListContainer = ({greetings}) => {
   const { category } = useParams()
 
   const [datos, setDatos] =useState ([]);
-  const lista=data;
+
 
   useEffect(()=>{
-    const getData = () => {
-      return new Promise((resolve, reject) => {
-        if (datos == []) {
-          reject(new Error('No hay datos'));
-        } else resolve(lista);
-          
-      });
-    };
-  
-    getData()
-      .then((lista) => {
-        
-       setDatos(lista);
-      })
-      .catch((error) => {
-        console.log('Error: ' + error);
-      });
-    
+   
+    const db = getFirestore ();
+    const itemsCollection = collection (db, "perfumes"); 
+      getDocs(itemsCollection).then((snapshot)=>{  
+          const docs = snapshot.docs.map((doc)=>({id: doc.id, ... doc.data()}))
+          setDatos(docs)
+})
   }, []);
 
-
-  const filtrar = datos.filter((dato)=> dato.category === category)
+  const filtrar = datos.filter((dato)=> dato.categoria === category)
 
     return (
       <>

@@ -6,6 +6,7 @@ import Welcome from "./components/Welcome";
 import Navbar from "./components/Navbar";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import CartContext from "./context/CartContext";
+import Form from "./components/Form";
 const App =()=>{
   return (
     <>
@@ -17,7 +18,7 @@ const App =()=>{
       <Route exact path= "/category/:category" element={<ItemListContainer  />} />
       <Route exact path= "/item/:id" element={<ItemDetailContainer/>} /> 
       <Route exact path= "/cart" element={<Cart/>}/>
-      
+      <Route exact path= "/form" element={<Form/>}/>
     </Routes>
     </CartContext>
     </>

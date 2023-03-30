@@ -1,28 +1,27 @@
-import React from 'react'
+
 import Item from './Item'
 
-const ItemList = (({datos}) => {
+const ItemList = ({datos}) => {
           return(
             <div className='itemContainer'>
-                {datos.map((dato)=>{
-                    return (
+                {datos?.map((dato)=>(
                       <Item
                       id={dato.id} 
                       key= {dato.id}
-                      name={dato.name}
-                      price={dato.price}
-                      picture={dato.pictureUrl}
+                      name={dato.nombre}
+                      price={dato.precio}
+                      picture={dato.imagen}
                       stock={dato.stock}
-                      category={dato.category}
+                      category={dato.categoria}
+                      presentacion={dato.presentacion}
+                      marca={dato.marca}
                       />
-                    )
-                }) 
+                )) 
                  }
-
             </div>  
         )
         
-})
+}
 
 
 export default ItemList

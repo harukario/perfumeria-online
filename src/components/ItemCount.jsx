@@ -1,10 +1,11 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { CartContextShop } from '../context/CartContext';
 
-const ItemCount = ({stock, productName, price, picture, id}) => {
+const ItemCount = ({stock, productName, price, picture, id, idKey}) => {
 
      const {cart, setCart} = useContext(CartContextShop);
      const [cantidad, setCantidad]= useState(1);
+     const subtotal= cantidad*price; 
 
     const less =()=>{
         if (cantidad >1){
@@ -16,19 +17,20 @@ const ItemCount = ({stock, productName, price, picture, id}) => {
         if (cantidad < stock){
             setCantidad (cantidad + 1);
         }
-        else alert("No hay mas stock")
+        return(
+            <div> No hay mas stock</div>
+        )
     }
 
     const added = ()=>{
-      
-    const nuevoProducto={id, productName,cantidad,price, picture}
+    const nuevoProducto={id, productName,cantidad,price, picture, subtotal,stock}
     const existingProductIndex = cart.find(
         (product) => product.id === nuevoProducto.id
       );
       
       if (existingProductIndex) {
                     const carritoActualizado = cart.map((prod)=>{
-                        if(prod.id === nuevoProducto.id){
+                        if(prod.id === nuevoProducto.id && prod.cantidad + cantidad <= prod.stock){
                             return {...prod, cantidad:prod.cantidad + cantidad}
                         }else{
                             return prod
@@ -39,8 +41,7 @@ const ItemCount = ({stock, productName, price, picture, id}) => {
         setCart([...cart, nuevoProducto]);
       }
     }
-    console.log(cart, 'carrito')
-    
+ 
   return (
     <>
      <div className='itemCount'>
