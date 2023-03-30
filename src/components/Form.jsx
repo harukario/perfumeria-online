@@ -14,25 +14,22 @@ const Form = () => {
     const handleSubmit =(e)=>{
         e.preventDefault();
         addDoc(orderCollection, order). then(({id})=> setOrderId(id));
-      
+        
      }
 
      const totalCompra = total()
-    
+     const fecha =  new Date();
      const order ={
         cliente,
         envio,
         pago,
         totalCompra,
+        fecha,
         items: cart.map((item)=>({id: item.id, nombre: item.productName, precio: item.price, cantidad: item.cantidad}))
      }
+
      const orderCollection = collection (db, "compra")
      
-     
-  
-       
-
- 
 
   return (
     <> 
