@@ -21,7 +21,7 @@ const ImageSlider = ({ slides }) => {
     }
   >
     {slides.map((slide) => (
-      <Link height="30" to={`item/${slide.id}`}>
+      <Link height="30" to={`item/${slide.id}`} key={slide.id}>
         <Box> <Image src={slide.image} height="auto" width="800px" /> </Box>
       </Link>
 
