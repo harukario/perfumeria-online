@@ -9,16 +9,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@chakra-ui/icons": "^2.0.18",
+    "@chakra-ui/react": "^2.5.5",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@fontsource/abril-fatface": "^4.5.9",
+    "@fontsource/open-sans": "^4.5.14",
+    "@fontsource/poppins": "^4.5.10",
+    "@fontsource/raleway": "^4.5.12",
     "firebase": "^9.18.0",
+    "framer-motion": "^10.10.0",
     "json": "^11.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.8.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "prettier": "2.8.7",
     "vite": "^4.1.0"
   }
 }

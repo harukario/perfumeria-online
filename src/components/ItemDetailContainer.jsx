@@ -1,35 +1,31 @@
+import { useEffect, useState } from "react";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import ItemDetail from "./ItemDetail";
 
-import { useEffect, useState } from 'react';
-
-import {collection, getDocs, getFirestore} from "firebase/firestore"
-import ItemDetail from './ItemDetail';
+import { Box } from "@chakra-ui/react";
 
 const ItemDetailContainer = () => {
-   
+  const [datos, setDatos] = useState([]);
 
-    const [datos, setDatos] = useState ([]);
+  useEffect(() => {
+    const db = getFirestore();
 
-    useEffect(()=>{
+    const perfumesColeccion = collection(db, "perfumes");
 
-        const db = getFirestore ();
+    getDocs(perfumesColeccion).then((querySnapshot) => {
+      const perfume = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setDatos(perfume);
+    });
+  }, []);
 
-        const perfumesColeccion = collection(db, "perfumes"); 
-
-        getDocs(perfumesColeccion).then((querySnapshot)=>{  
-          const perfume = querySnapshot.docs.map ((doc) =>({
-            ...doc.data(),
-            id:doc.id
-          }));
-          setDatos(perfume);
-           });
-    },[])
-
-        
   return (
-    
-     <ItemDetail datosContainer={datos} />
+    <Box bg="white" mt="6">
+      <ItemDetail datosContainer={datos} />
+    </Box>
+  );
+};
 
-  )
-}
-
-export default ItemDetailContainer
+export default ItemDetailContainer;

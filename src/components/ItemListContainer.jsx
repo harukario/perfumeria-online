@@ -1,39 +1,35 @@
-import React from 'react'
-import ItemList from './ItemList'
+import React from "react";
+import ItemList from "./ItemList";
+import { Box } from "@chakra-ui/react";
+import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-import {collection, getDocs, getFirestore} from "firebase/firestore"
-import { useParams } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+const ItemListContainer = ({ greetings }) => {
+  const { category } = useParams();
 
-const ItemListContainer = ({greetings}) => {
+  const [datos, setDatos] = useState([]);
 
-  const { category } = useParams()
-
-  const [datos, setDatos] =useState ([]);
-
-
-  useEffect(()=>{
-   
-    const db = getFirestore ();
-    const itemsCollection = collection (db, "perfumes"); 
-      getDocs(itemsCollection).then((snapshot)=>{  
-          const docs = snapshot.docs.map((doc)=>({id: doc.id, ... doc.data()}))
-          setDatos(docs)
-})
+  useEffect(() => {
+    const db = getFirestore();
+    const itemsCollection = collection(db, "perfumes");
+    getDocs(itemsCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      setDatos(docs);
+    });
   }, []);
 
-  const filtrar = datos.filter((dato)=> dato.categoria === category)
+  const filtrar = datos.filter(
+    (dato) => dato.categoria === category || dato.categoriaPrecio === category
+  );
 
-    return (
-      <>
-        <div className='itemListContainer'> 
-            <div className='greetings'>{greetings} </div>
-        <div>
-          {category ? <ItemList datos={filtrar} /> : <ItemList datos={datos} /> }
-        </div>
-      </div>
-      </>
-    )
-}
+  return (
+    <>
+      <Box bg="#F7FAFC" p="4">
+        {category ? <ItemList datos={filtrar} /> : <ItemList datos={datos} />}
+      </Box>
+    </>
+  );
+};
 
-export default ItemListContainer
+export default ItemListContainer;
