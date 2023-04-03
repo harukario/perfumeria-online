@@ -11,18 +11,20 @@ const ImageSlider = ({ slides }) => {
       interval={3000} 
       showThumbs={false} 
       renderThumbs={(thumbs) =>
-      thumbs.map((image, index) => (
-        <img src={image}key={index}
-          onClick={() => carousel.current.slideTo(index)}
-          style={{ height: "50px", margin: "0 5px" }}
+        thumbs.map((image, index) => (
+          <img src={image}key={index} 
+            onClick={() => Carousel.current.slideTo(index)}
+            style={{ height: "50px", margin: "0 5px" }}
         />
+   
       ))
     }
   >
     {slides.map((slide) => (
-      <Link to={`item/${slide.id}`} key={slide.id}>
-        <Image src={slide.image} height="auto" width="800px" />
+      <Link height="30" to={`item/${slide.id}`}>
+        <Box> <Image src={slide.image} height="auto" width="800px" /> </Box>
       </Link>
+
     ))}
   </Carousel>
   );
