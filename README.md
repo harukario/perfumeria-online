@@ -19,20 +19,17 @@ A continuación, ejecute los siguientes comandos:
 
 Esto iniciará la aplicación en 'http://localhost:5173/'
 
-## Comenzando 
+## Características 
 
--Página de inicio con productos destacados
--Página de búsqueda con filtros por categoría y precio
--Página de detalle de producto con descripción y precio
--Carrito de compras con resumen de productos y formulario de envío y pago
--Página de confirmación de compra con resumen de compra y número de orden
+- Página de inicio con productos destacados
+- Página de búsqueda con filtros por categoría y precio
+- Página de detalle de producto con descripción y precio
+- Carrito de compras con resumen de productos y formulario de envío y pago
+- Página de confirmación de compra con resumen de compra y número de orden
 
-##Contacto
+## Contacto
 
-Si tiene preguntas o comentarios sobre este proyecto, puede ponerse en contacto conmigo en mi perfil de Linkedin [Linkedin](https://www.linkedin.com/in/valentina-illanes/)
+Si tiene preguntas o comentarios sobre este proyecto, puede ponerse en contacto conmigo en mi perfil de [Linkedin](https://www.linkedin.com/in/valentina-illanes/)
 
-##Creado por Valentina Illanes
+## Creado por Valentina Illanes
 
-
-
-**Hecho con React + Vite + Chakra UI**
