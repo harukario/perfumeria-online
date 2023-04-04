@@ -54,108 +54,117 @@ const { isOpen, onOpen, onClose } = useDisclosure();
             {" "}
             <h2>CARGA DE DATOS </h2>
         </Box>
-        <Box w="80%" p="6" bg="white" borderRadius="lg" ml='8rem'>
-        Nombre producto:
+        <Box w="80%" p="6" bg="white" borderRadius="lg" ml='8rem'>  
+      Nombre producto:
         <Input
             size="md"
             mt="2"
             mb="4"
             value={nombre}
             onChange={(e) =>
-            setNombre(e.target.value )
-            }
-        />
+              setNombre(e.target.value )
+              }
+          />
+
       Marca:
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={marca}
-        onChange={(e) =>
-            setMarca(e.target.value )
-        }
-      />
-        Presentacion:
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={presentacion}
-        onChange={(e) =>
-            setPresentacion(e.target.value )
-        }
-      />
-        Precio:
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={precio}
-        onChange={(e) =>
-            setPrecio(e.target.value )
-        }
-      />
-       Stock:
         <Input
+          size="md"
+          mt="2"
+          mb="4"
+          value={marca}
+          onChange={(e) =>
+              setMarca(e.target.value )
+          }
+        />
+
+      Presentacion:
+        <Input
+          size="md"
+          mt="2"
+          mb="4"
+          value={presentacion}
+          onChange={(e) =>
+              setPresentacion(e.target.value )
+          }
+        />
+
+      Precio:
+        <Input
+          type="number"
+          size="md"
+          mt="2"
+          mb="4"
+          value={precio}
+          onChange={(e) =>
+              setPrecio(+e.target.value )
+          }
+        />
+
+      Stock:
+        <Input
+            type="number"
             size="md"
             mt="2"
             mb="4"
             value={stock}
             onChange={(e) =>
-                setStock(e.target.value )
-            }
+              setStock(+e.target.value )
+              }
+          />
+      Descripcion:
+        <Input
+          size="md"
+          mt="2"
+          mb="4"
+          value={descripcion}
+          onChange={(e) =>
+              setDescripcion(e.target.value )
+          }
         />
-        Descripcion:
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={descripcion}
-        onChange={(e) =>
-            setDescripcion(e.target.value )
-        }
-      />
-        Notas olfativas:
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={notasOlfativas}
-        onChange={(e) =>
-            setNotasOlfativas(e.target.value )
-        }
-      />
-        Imagen (link):
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={imagen}
-        onChange={(e) =>
-            setImagen(e.target.value )
-        }
-      />
-        Categoria (femenina, masculina):
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={categoria}
-        onChange={(e) =>
-            setCategoria(e.target.value )
-        }
-      />
-  Categoria precio (premium, low):
-      <Input
-        size="md"
-        mt="2"
-        mb="4"
-        value={categoriaPrecio}
-        onChange={(e) =>
-            setCategoriaPrecio(e.target.value )
-        }
-      />
-    </Box>
+
+      Notas olfativas:
+        <Input
+          size="md"
+          mt="2"
+          mb="4"
+          value={notasOlfativas}
+          onChange={(e) =>
+              setNotasOlfativas(e.target.value )
+          }
+        />
+      Imagen (link):
+        <Input
+          size="md"
+          mt="2"
+          mb="4"
+          value={imagen}
+          onChange={(e) =>
+              setImagen(e.target.value )
+          }
+        />
+
+      Categoria (femenina, masculina):
+        <Input
+          size="md"
+          mt="2"
+          mb="4"
+          value={categoria}
+          onChange={(e) =>
+              setCategoria(e.target.value )
+          }
+        />
+
+    Categoria precio (premium, low):
+        <Input
+          size="md"
+          mt="2"
+          mb="4"
+          value={categoriaPrecio}
+          onChange={(e) =>
+              setCategoriaPrecio(e.target.value )
+          }
+        />
+      </Box>
 
     {nombre && marca && presentacion && descripcion && notasOlfativas && imagen && categoria && categoriaPrecio && precio && stock !== "" ? (
         <Button m='10' bg="black" color="white" size="md" type="submit" fontWeight="regular" onClick={onOpen}> Cargar producto </Button>
