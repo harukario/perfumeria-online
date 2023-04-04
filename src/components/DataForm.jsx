@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import { collection, getFirestore, addDoc } from "firebase/firestore";
 
-import { Input, Button, Select,Stack,Container, Radio, Box, Grid, GridItem, Image,Modal,ModalOverlay,ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, useDisclosure} from "@chakra-ui/react";
+import { Input, Button, Box, Modal,ModalOverlay,ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure} from "@chakra-ui/react";
 
 const DataForm = () => {
       const [nombre, setNombre] = useState("");
@@ -50,12 +50,11 @@ const { isOpen, onOpen, onClose } = useDisclosure();
   }; 
   return (
     <form onSubmit={handleSubmit}>
-        <Box w="80%" p="6" bg="white" borderRadius="lg" m="6">
-        <Box mt="3" mb="3" fontSize="xl">
+      <Box w="80%" p="6"mt='4rem' ml='8rem' fontSize="2xl" fontWeight='light'>
             {" "}
             <h2>CARGA DE DATOS </h2>
         </Box>
-
+        <Box w="80%" p="6" bg="white" borderRadius="lg" ml='8rem'>
         Nombre producto:
         <Input
             size="md"
@@ -126,7 +125,7 @@ const { isOpen, onOpen, onClose } = useDisclosure();
             setNotasOlfativas(e.target.value )
         }
       />
-        Imagen (link entre comillas):
+        Imagen (link):
       <Input
         size="md"
         mt="2"
@@ -146,7 +145,7 @@ const { isOpen, onOpen, onClose } = useDisclosure();
             setCategoria(e.target.value )
         }
       />
-  Categoria precio (premium, lowcost):
+  Categoria precio (premium, low):
       <Input
         size="md"
         mt="2"
@@ -161,7 +160,7 @@ const { isOpen, onOpen, onClose } = useDisclosure();
     {nombre && marca && presentacion && descripcion && notasOlfativas && imagen && categoria && categoriaPrecio && precio && stock !== "" ? (
         <Button m='10' bg="black" color="white" size="md" type="submit" fontWeight="regular" onClick={onOpen}> Cargar producto </Button>
         ) : (
-        <Box p='10' color='red'>Debes completar todos los campos</Box>
+        <Box p='10' ml='8rem' color='red'>Debes completar todos los campos</Box>
     )}
                 <Modal isOpen={isOpen} onClose={onClose}>
                   <ModalOverlay />
