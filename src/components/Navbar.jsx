@@ -2,7 +2,7 @@ import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 
 import {Flex, Box, Button, MenuList, MenuButton, Menu, MenuItem} from "@chakra-ui/react";
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { ChevronDownIcon, LockIcon } from "@chakra-ui/icons";
 
 const Navbar = () => {
   return (
@@ -68,6 +68,7 @@ const Navbar = () => {
           </Menu>
           <Box pos="absolute" right="40">
             <CartWidget />{" "}
+            <Link to = "/login" ><LockIcon /></Link>
           </Box>
         </Flex>
       </Flex>
