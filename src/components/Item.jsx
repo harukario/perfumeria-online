@@ -2,7 +2,7 @@ import React from "react";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import { Text, Image, Flex, Box, Container, Tooltip } from "@chakra-ui/react";
-const Item = ({ id, name, picture, stock, price, presentacion, marca }) => {
+const Item = ({ id, nombre, imagen, stock, precio, presentacion, marca }) => {
   return (
     <Box display="inline-block">
       <Container
@@ -21,13 +21,13 @@ const Item = ({ id, name, picture, stock, price, presentacion, marca }) => {
             <Link className="link" to={`/item/${id}`}>
               <Image
                 maxW="14em"
-                src={picture}
+                src={imagen}
                 alt="Product"
                 borderRadius="lg"
               />
 
               <Box p="2" height="7rem" textAlign="center" fontSize="xl">
-                <h1>{name}</h1>
+                <h1>{nombre}</h1>
                 <Text color="grey" fontSize="md">
                   {marca}
                 </Text>
@@ -36,7 +36,7 @@ const Item = ({ id, name, picture, stock, price, presentacion, marca }) => {
               <Box textAlign="center">
                 {" "}
                 <Text fontSize="xl">
-                  <b>${price}</b>
+                  <b>${precio}</b>
                 </Text>
               </Box>
             </Link>
@@ -45,11 +45,11 @@ const Item = ({ id, name, picture, stock, price, presentacion, marca }) => {
         <Flex justifyContent="center">
           <ItemCount
             stock={stock}
-            productName={name}
-            price={price}
-            picture={picture}
+            nombre={nombre}
+            precio={precio}
+            imagen={imagen}
             id={id}
-            idKey={id}
+        
           />
         </Flex>
       </Container>

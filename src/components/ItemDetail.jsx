@@ -128,12 +128,11 @@ const ItemDetail = ({ datosContainer }) => {
                     </Box>
                     <Box mt="2rem">
                       <ItemCount
-                        picture={dato.imagen}
+                        imagen={dato.imagen}
                         id={dato.id}
                         stock={dato.stock}
-                        productName={dato.nombre}
-                        price={dato.precio}
-                        idKey={dato.id}
+                        nombre={dato.nombre}
+                        precio={dato.precio}
                       />
                     </Box>
                   </Flex>

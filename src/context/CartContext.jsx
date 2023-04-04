@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from "react";
+import { useState, createContext } from "react";
 
 export const CartContextShop = createContext(null);
 
@@ -12,8 +12,8 @@ const CartContext = ({ children }) => {
   };
 
   const total = () => {
-    if (cart.length != 0) {
-      return cart.reduce((acc, prod) => (acc += prod.subtotal), 0);
+    if (cart.length > 0) {
+      return cart.reduce((acc, prod) => (acc += prod.subtotal),0);
     }
   };
 

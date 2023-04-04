@@ -12,7 +12,7 @@ const LogIn = () => {
   const [nombre, setNombre] = useState("");
   const [pass, setPass] = useState("");
   const [verificado, setVerificado] = useState(null);
-  let navigateTo     = useNavigate();
+  let navigateTo = useNavigate();
 
   const nombreUsuario = "admin";
   const password = "abril2023";

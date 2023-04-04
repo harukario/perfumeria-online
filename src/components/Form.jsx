@@ -34,8 +34,8 @@ const Form = () => {
     fecha,
     items: cart.map((item) => ({
       id: item.id,
-      nombre: item.productName,
-      precio: item.price,
+      nombre: item.nombre,
+      precio: item.precio,
       cantidad: item.cantidad,
     })),
   };
@@ -89,17 +89,17 @@ const Form = () => {
                         <Box boxSize="4rem">
                           <Link className="link" to={`/item/${prod.id}`}>
                             {" "}
-                            <Image src={prod.picture} alt="Prod picture" />{" "}
+                            <Image src={prod.imagen} alt="Prod imagen" />{" "}
                           </Link>
                         </Box>
                       </GridItem>
                       <GridItem textAlign="right" area={"datos"}>
-                        <Box fontSize="lg">{prod.productName} </Box>
+                        <Box fontSize="lg">{prod.nombre} </Box>
                         <Box fontSize="sm" color="grey">
                           {" "}
                           Cantidad: {prod.cantidad}{" "}
                         </Box>
-                        <Box fontSize="lg">$ {prod.price} </Box>
+                        <Box fontSize="lg">$ {prod.precio} </Box>
                       </GridItem>
                     </Grid>
                   </Box>

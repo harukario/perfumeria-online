@@ -15,34 +15,27 @@ import { DeleteIcon } from "@chakra-ui/icons";
 
 import { useDisclosure } from "@chakra-ui/react";
 
-const ItemCount = ({
-  stock,
-  productName,
-  price,
-  picture,
-  id,
-  marca,
-  presentacion,
-}) => {
+const ItemCount = ({stock,nombre,precio,imagen, id, marca, presentacion}) => {
+  
   const { isOpen, onToggle } = useDisclosure();
   const { cart, setCart, total } = useContext(CartContextShop);
 
   const [cantidad, setCantidad] = useState(1);
-  const [subtotal, setSubtotal] = useState(price);
+  const [subtotal, setSubtotal] = useState(precio);
   const [mensaje, setMensaje] = useState(false);
   const [agregado, setAgregado] = useState(false);
 
   const less = () => {
     if (cantidad > 1) {
       setCantidad(cantidad - 1);
-      setSubtotal((cantidad - 1) * price);
+      setSubtotal((cantidad - 1) * precio);
     }
   };
 
   const add = () => {
     if (cantidad < stock) {
       setCantidad(cantidad + 1);
-      setSubtotal((cantidad + 1) * price);
+      setSubtotal((cantidad + 1) * precio);
       setMensaje(false);
     } else {
       setMensaje(true);
@@ -56,10 +49,10 @@ const ItemCount = ({
   const added = () => {
     const nuevoProducto = {
       id,
-      productName,
+      nombre,
       cantidad,
-      price,
-      picture,
+      precio,
+      imagen,
       subtotal,
       stock,
       marca,
@@ -162,7 +155,7 @@ const ItemCount = ({
               {" "}
               <Button onClick={onToggle}>X</Button>{" "}
             </Flex>
-            <Box fontWeight="bold">{productName} agregado con éxito!</Box>
+            <Box fontWeight="bold">{nombre} agregado con éxito!</Box>
 
             <Box
               maxWidth="26rem"
@@ -191,12 +184,12 @@ const ItemCount = ({
 
                 <GridItem area={"h4"}>SUBTOTAL</GridItem>
               </Grid>
+              
               {cart.map((prod) => (
                 <Grid
                   key={prod.id}
                   templateAreas={`
-                        
-                        "img nombre precio cantidad subtotal"`}
+                  "img nombre precio cantidad subtotal"`}
                   templateColumns="repeat(5,2fr)"
                   templateRows="2fr"
                   gap={1}
@@ -205,11 +198,11 @@ const ItemCount = ({
                   textAlign="center"
                 >
                   <GridItem area={"img"}>
-                    <Image src={prod.picture} alt="Prod picture" />
+                    <Image src={prod.imagen} alt="Prod imagen" />
                   </GridItem>
 
                   <GridItem area={"nombre"}>
-                    <Box>{prod.productName} </Box>
+                    <Box>{prod.nombre} </Box>
                     <Box fontSize="sm" color="grey">
                       {" "}
                       {prod.marca}
@@ -223,7 +216,7 @@ const ItemCount = ({
                   <GridItem area={"precio"}>
                     <Box fontSize="lg" fontWeight="bold">
                       {" "}
-                      ${prod.price}
+                      ${prod.precio}
                     </Box>
                   </GridItem>
 

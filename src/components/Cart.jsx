@@ -16,7 +16,7 @@ const Cart = () => {
           return {
             ...item,
             cantidad: item.cantidad + 1,
-            subtotal: (item.cantidad + 1) * item.price,
+            subtotal: (item.cantidad + 1) * item.precio,
           };
         } else {
           return item;
@@ -33,7 +33,7 @@ const Cart = () => {
             return {
               ...item,
               cantidad: item.cantidad - 1,
-              subtotal: (item.cantidad - 1) * item.price,
+              subtotal: (item.cantidad - 1) * item.precio,
             };
           } else {
             return item;
@@ -127,12 +127,12 @@ const Cart = () => {
               >
                 <GridItem area={"img"}>
                   <Link className="link" to={`/item/${prod.id}`}>
-                    <Image src={prod.picture} alt="Prod picture" />
+                    <Image src={prod.imagen} alt="Prod picture" />
                   </Link>
                 </GridItem>
 
                 <GridItem area={"nombre"}>
-                  <Box>{prod.productName} </Box>
+                  <Box>{prod.nombre} </Box>
                   <Box fontSize="sm" color="grey">
                     {" "}
                     {prod.marca}
@@ -146,7 +146,7 @@ const Cart = () => {
                 <GridItem area={"precio"}>
                   <Box fontSize="lg" fontWeight="bold">
                     {" "}
-                    ${prod.price}
+                    ${prod.precio}
                   </Box>
                 </GridItem>
 

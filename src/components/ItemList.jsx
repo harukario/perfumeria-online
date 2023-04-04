@@ -7,11 +7,11 @@ const ItemList = ({ datos }) => {
         <Item
           id={dato.id}
           key={dato.id}
-          name={dato.nombre}
-          price={dato.precio}
-          picture={dato.imagen}
+          nombre={dato.nombre}
+          precio={dato.precio}
+          imagen={dato.imagen}
           stock={dato.stock}
-          category={dato.categoria}
+          categoria={dato.categoria}
           presentacion={dato.presentacion}
           marca={dato.marca}
         />
