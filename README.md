@@ -1,7 +1,7 @@
 # Ecommerce Perfumería
 
 ---
-## Proyecto página web e-commerce para el curso React de Coderhouse
+## Proyecto página web e-commerce React
 
 En este proyecto he desarrollado una página web de e-commerce para una perfumería, utilizando React para el frontend, Vite como bundler y Chakra UI como biblioteca de componentes.
 
