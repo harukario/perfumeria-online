@@ -27,6 +27,7 @@ Esto iniciará la aplicación en 'http://localhost:5173/'
 - Carrito de compras con resumen de productos y formulario de envío y pago
 - Página de confirmación de compra con resumen de compra y número de orden
 
+[Aquí te dejo screens](./screens)
 ## Contacto
 
 Si tiene preguntas o comentarios sobre este proyecto, puede ponerse en contacto conmigo en mi perfil de [Linkedin](https://www.linkedin.com/in/valentina-illanes/)
